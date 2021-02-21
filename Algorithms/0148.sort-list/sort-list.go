@@ -1,7 +1,7 @@
 package problem0148
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 // ListNode 是题目预定义的数据类型

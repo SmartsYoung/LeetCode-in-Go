@@ -1,7 +1,7 @@
 package problem0103
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -22,7 +22,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 		if level%2 == 0 {
 			res[level] = append(res[level], root.Val)
 		} else {
-			temp := make([]int ,  len(res[level])+1)
+			temp := make([]int, len(res[level])+1)
 			temp[0] = root.Val
 			copy(temp[1:], res[level])
 			res[level] = temp

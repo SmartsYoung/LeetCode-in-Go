@@ -1,7 +1,7 @@
 package problem0652
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"strconv"
 )
 
@@ -24,7 +24,7 @@ func helper(root *TreeNode, count map[string]int, res *[]*TreeNode) string {
 	l := helper(root.Left, count, res)
 	r := helper(root.Right, count, res)
 
-	key := strconv.Itoa(root.Val) +  l +  r 
+	key := strconv.Itoa(root.Val) + l + r
 
 	count[key]++
 	if count[key] == 2 {

@@ -1,7 +1,7 @@
 package problem0587
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type Point = kit.Point
@@ -16,8 +16,8 @@ func outerTrees(points []Point) []Point {
 	// 如果最左边的点，不止一个，选择其中最下面的那个
 	first := 0
 	for i := 1; i < n; i++ {
-		if points[i].X < points[first].X||
-		(points[i].X == points[first].X && points[i].Y< points[first].Y) {
+		if points[i].X < points[first].X ||
+			(points[i].X == points[first].X && points[i].Y < points[first].Y) {
 			first = i
 		}
 	}

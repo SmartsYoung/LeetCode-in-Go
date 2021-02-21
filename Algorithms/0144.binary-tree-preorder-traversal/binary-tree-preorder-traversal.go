@@ -1,7 +1,7 @@
 package problem0144
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -19,7 +19,7 @@ func preorderTraversal(root *TreeNode) []int {
 				rightStack = append(rightStack, cur.Right)
 			}
 			cur = cur.Left
-		} else { // cur.Left == nil 
+		} else { // cur.Left == nil
 			if cur.Right != nil {
 				cur = cur.Right
 			} else { // cur.Left == cur.Right == nil
@@ -27,14 +27,14 @@ func preorderTraversal(root *TreeNode) []int {
 				// 说明已经完成遍历了
 				if len(rightStack) == 0 {
 					break
-                }
-                // 否则
+				}
+				// 否则
 				// 取出最后放入的右侧节点，继续 for 循环
 				cur = rightStack[len(rightStack)-1]
 				rightStack = rightStack[:len(rightStack)-1]
 			}
 		}
-    }
+	}
 
 	return res
 }

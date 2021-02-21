@@ -1,7 +1,7 @@
 package problem0106
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -26,7 +26,6 @@ func buildTree(in []int, post []int) *TreeNode {
 
 	return res
 }
-
 
 func indexOf(val int, nums []int) int {
 	for i, v := range nums {

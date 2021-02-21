@@ -3,7 +3,7 @@ package problem1161
 import (
 	"math"
 
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 // TreeNode is pre-defined...

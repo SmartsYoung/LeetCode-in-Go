@@ -1,7 +1,7 @@
 package problem0563
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -26,5 +26,5 @@ func helper(root *TreeNode, tilt *int) int {
 		*tilt += r - l
 	}
 
-	return l + r+root.Val
+	return l + r + root.Val
 }

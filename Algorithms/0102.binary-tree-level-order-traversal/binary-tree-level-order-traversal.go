@@ -1,7 +1,7 @@
 package problem0102
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -16,7 +16,7 @@ func levelOrder(root *TreeNode) [][]int {
 		}
 
 		// 出现了新的 level
-		if  level >= len(res)   {
+		if level >= len(res) {
 			res = append(res, []int{})
 		}
 		res[level] = append(res[level], root.Val)

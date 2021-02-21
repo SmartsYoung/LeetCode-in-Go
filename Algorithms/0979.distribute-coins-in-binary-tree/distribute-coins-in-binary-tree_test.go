@@ -3,7 +3,7 @@ package problem0979
 import (
 	"testing"
 
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"github.com/stretchr/testify/assert"
 )
 

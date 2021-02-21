@@ -1,6 +1,6 @@
 package problem0951
 
-import "github.com/aQuaYi/LeetCode-in-Go/kit"
+import "github.com/SmartsYoung/LeetCode-in-Go/kit"
 
 // TreeNode is pre-defined in kit library
 type TreeNode = kit.TreeNode

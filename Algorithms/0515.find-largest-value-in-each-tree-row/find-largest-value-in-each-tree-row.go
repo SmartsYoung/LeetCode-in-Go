@@ -1,7 +1,7 @@
 package problem0515
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"math"
 )
 

@@ -1,7 +1,7 @@
 package problem0145
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -25,7 +25,7 @@ func postorderTraversal(root *TreeNode) []int {
 		} else {
 			// cur 不是 leaf，就先让 cur 入 stack
 			// 暂存 cur 的左右节点
-			left, right  := cur.Left, cur.Right
+			left, right := cur.Left, cur.Right
 			// 裁剪 cur，避免重复访问
 			cur.Left, cur.Right = nil, nil
 			stack = append(stack, cur)
@@ -37,7 +37,7 @@ func postorderTraversal(root *TreeNode) []int {
 					// 非空的 right 入 stack
 					stack = append(stack, right)
 				}
-			} else { // left == nil 
+			} else { // left == nil
 				cur = right
 			}
 		}

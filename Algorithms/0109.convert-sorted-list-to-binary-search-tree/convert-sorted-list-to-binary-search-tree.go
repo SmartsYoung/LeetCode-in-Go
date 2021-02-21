@@ -1,7 +1,7 @@
 package problem0109
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 // ListNode is 题目预先定义的数据结构

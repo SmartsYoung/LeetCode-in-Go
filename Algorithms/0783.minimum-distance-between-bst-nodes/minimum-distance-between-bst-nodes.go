@@ -1,7 +1,7 @@
 package problem0783
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 /**
@@ -17,21 +17,21 @@ type TreeNode = kit.TreeNode
 
 func minDiffInBST(root *TreeNode) int {
 	res := 1<<63 - 1
-	pre := 1>>63
-	null := pre 
+	pre := 1 >> 63
+	null := pre
 
 	var helper func(*TreeNode)
-	helper = func (root *TreeNode) {
+	helper = func(root *TreeNode) {
 		if root.Left != nil {
 			helper(root.Left)
 		}
-	
-		if pre != null{
+
+		if pre != null {
 			res = min(res, root.Val-pre)
 		}
-	
+
 		pre = root.Val
-	
+
 		if root.Right != nil {
 			helper(root.Right)
 		}
@@ -41,8 +41,6 @@ func minDiffInBST(root *TreeNode) int {
 
 	return res
 }
-
-
 
 func min(a, b int) int {
 	if a < b {

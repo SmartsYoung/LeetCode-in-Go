@@ -1,7 +1,9 @@
 package problem0105
+
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
+
 type TreeNode = kit.TreeNode
 
 func buildTree(pre, in []int) *TreeNode {

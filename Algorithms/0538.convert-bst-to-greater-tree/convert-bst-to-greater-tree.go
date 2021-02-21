@@ -1,13 +1,13 @@
 package problem0538
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
 
 func convertBST(root *TreeNode) *TreeNode {
-	sum :=0
+	sum := 0
 	travel(root, &sum)
 	return root
 }
@@ -19,6 +19,6 @@ func travel(root *TreeNode, sum *int) {
 	}
 	travel(root.Right, sum)
 	*sum += root.Val
-	root.Val= *sum
+	root.Val = *sum
 	travel(root.Left, sum)
 }

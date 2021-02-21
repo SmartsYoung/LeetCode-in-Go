@@ -1,7 +1,7 @@
 package problem0606
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"strconv"
 )
 
@@ -18,10 +18,10 @@ func tree2str(t *TreeNode) string {
 		return res
 	}
 
-	res += "("+ tree2str(t.Left)+")"
+	res += "(" + tree2str(t.Left) + ")"
 
 	if t.Right != nil {
-	res += "("+ tree2str(t.Right)+")"	
+		res += "(" + tree2str(t.Right) + ")"
 	}
 
 	return res

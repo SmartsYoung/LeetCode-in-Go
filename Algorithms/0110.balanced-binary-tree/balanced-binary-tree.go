@@ -1,7 +1,7 @@
 package problem0110
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -20,7 +20,7 @@ func recur(root *TreeNode) (int, bool) {
 	rightDepth, rightIsBalanced := recur(root.Right)
 
 	if leftIsBalanced && rightIsBalanced &&
-		-1 <= leftDepth-rightDepth  && leftDepth - rightDepth <= 1 {
+		-1 <= leftDepth-rightDepth && leftDepth-rightDepth <= 1 {
 		return max(leftDepth, rightDepth) + 1, true
 	}
 

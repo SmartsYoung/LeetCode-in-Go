@@ -1,8 +1,8 @@
 package problem0385
 
 import (
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"strconv"
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
 )
 
 /**

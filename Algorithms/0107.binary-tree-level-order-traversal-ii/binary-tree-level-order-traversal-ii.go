@@ -1,10 +1,10 @@
 package problem0107
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
-type TreeNode =  kit.TreeNode
+type TreeNode = kit.TreeNode
 
 func levelOrderBottom(root *TreeNode) [][]int {
 	res := [][]int{}
@@ -16,10 +16,10 @@ func levelOrderBottom(root *TreeNode) [][]int {
 		}
 
 		// 出现了新的 level
-		if  level >= len(res)   {
-			res = append([][]int{[]int{}}, res... )
+		if level >= len(res) {
+			res = append([][]int{[]int{}}, res...)
 		}
-		n := len(res )
+		n := len(res)
 		res[n-level-1] = append(res[n-level-1], root.Val)
 
 		dfs(root.Left, level+1)
@@ -28,5 +28,5 @@ func levelOrderBottom(root *TreeNode) [][]int {
 
 	dfs(root, 0)
 
-	return res 
+	return res
 }

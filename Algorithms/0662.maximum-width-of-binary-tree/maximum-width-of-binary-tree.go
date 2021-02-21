@@ -1,13 +1,13 @@
 package problem0662
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
 
 func widthOfBinaryTree(root *TreeNode) int {
-	if root == nil  {
+	if root == nil {
 		return 0
 	}
 
@@ -47,6 +47,7 @@ func widthOfBinaryTree(root *TreeNode) int {
 
 	return res
 }
+
 // 本题也可以使用 DFS 来做
 
 func getWidth(locQueue []int) int {

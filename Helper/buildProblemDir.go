@@ -51,7 +51,7 @@ func build(p problem) {
 		}
 	}()
 
-    // windows用户注释这两行
+	// windows用户注释这两行
 	mask := syscall.Umask(0)
 	defer syscall.Umask(mask)
 
@@ -106,7 +106,7 @@ func creatGo(p problem, function, ansType string) {
 	treeNodeDefine := ""
 	if strings.Contains(function, "*TreeNode") {
 		treeNodeDefine = `
-import "github.com/aQuaYi/LeetCode-in-Go/kit"
+import "github.com/SmartsYoung/LeetCode-in-Go/kit"
 
 // TreeNode is pre-defined...
 // type TreeNode struct {

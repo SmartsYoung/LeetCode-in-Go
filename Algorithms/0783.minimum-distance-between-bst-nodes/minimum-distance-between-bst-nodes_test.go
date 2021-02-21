@@ -2,7 +2,7 @@ package problem0783
 
 import (
 	"fmt"
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -15,8 +15,8 @@ var tcs = []struct {
 }{
 
 	{
-		[]int{27,34,58,50,44	},
-		[]int{27,34,44,50,58},
+		[]int{27, 34, 58, 50, 44},
+		[]int{27, 34, 44, 50, 58},
 		6,
 	},
 

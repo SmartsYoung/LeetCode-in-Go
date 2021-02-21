@@ -1,14 +1,14 @@
 package problem0101
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
 
 func isSymmetric(root *TreeNode) bool {
 	if root == nil {
-		return true 
+		return true
 	}
 
 	return recur(root.Left, root.Right)

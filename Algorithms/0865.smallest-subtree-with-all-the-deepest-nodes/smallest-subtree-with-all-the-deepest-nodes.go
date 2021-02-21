@@ -1,7 +1,7 @@
 package problem0865
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 // TreeNode 是预定义的数据结构

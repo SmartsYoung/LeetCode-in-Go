@@ -1,7 +1,7 @@
 package problem0508
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -11,14 +11,14 @@ func findFrequentTreeSum(root *TreeNode) []int {
 	sum(root, rec)
 
 	res := make([]int, 0, len(rec))
-	max := -1 
+	max := -1
 	for s, c := range rec {
 		if max <= c {
 			if max < c {
 				max = c
 				res = res[0:0]
 			}
-			res = append(res , s)
+			res = append(res, s)
 		}
 	}
 

@@ -1,7 +1,7 @@
 package problem0637
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 type TreeNode = kit.TreeNode
@@ -26,7 +26,7 @@ func averageOfLevels(root *TreeNode) []float64 {
 			}
 		}
 
-		res = append(res,float64( sum)/float64(n))
+		res = append(res, float64(sum)/float64(n))
 		nodes = nodes[n:]
 	}
 

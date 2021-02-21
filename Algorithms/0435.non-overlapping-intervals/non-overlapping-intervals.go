@@ -1,30 +1,30 @@
 package problem0435
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"sort"
 )
 
 type Interval = kit.Interval
 
 func eraseOverlapIntervals(intervals []Interval) int {
-    end := -1 << 31
-    res:=0
-    if len(intervals) == 1 {
-        return 0
-    }
-    
-    sort.Sort(B(intervals))
-    
-    for _,v := range intervals {
-        if end <= v.Start  {
-            end = v.End
-        } else {
-            res++
-        }
-    }
+	end := -1 << 31
+	res := 0
+	if len(intervals) == 1 {
+		return 0
+	}
 
-    return res
+	sort.Sort(B(intervals))
+
+	for _, v := range intervals {
+		if end <= v.Start {
+			end = v.End
+		} else {
+			res++
+		}
+	}
+
+	return res
 }
 
 // B 经过排序后， End 小的排在前面

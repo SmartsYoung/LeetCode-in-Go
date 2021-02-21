@@ -1,7 +1,7 @@
 package problem0436
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 	"sort"
 )
 

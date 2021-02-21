@@ -1,7 +1,7 @@
 package problem0876
 
 import (
-	"github.com/aQuaYi/LeetCode-in-Go/kit"
+	"github.com/SmartsYoung/LeetCode-in-Go/kit"
 )
 
 // ListNode defined for singly-linked list.
