@@ -19,10 +19,7 @@ func shortestBridge(A [][]int) int {
 		i, j := island[idx][0], island[idx][1]
 		for l := 0; l < 4; l++ {
 			x, y := i+dx[l], j+dy[l]
-			if 0 <= x && x < m &&
-				0 <= y && y < n &&
-				A[x][y] == 1 &&
-				!isChecked[x][y] {
+			if 0 <= x && x < m && 0 <= y && y < n && A[x][y] == 1 && !isChecked[x][y] {
 				island = append(island, []int{x, y})
 				isChecked[x][y] = true
 			}
@@ -42,9 +39,7 @@ func shortestBridge(A [][]int) int {
 			i, j := land[0], land[1]
 			for l := 0; l < 4; l++ {
 				x, y := i+dx[l], j+dy[l]
-				if 0 <= x && x < m &&
-					0 <= y && y < n &&
-					!isChecked[x][y] {
+				if 0 <= x && x < m && 0 <= y && y < n && !isChecked[x][y] {
 					if A[x][y] == 1 {
 						return length
 					}
