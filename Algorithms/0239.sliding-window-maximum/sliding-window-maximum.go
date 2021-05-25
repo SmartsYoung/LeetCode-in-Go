@@ -1,5 +1,38 @@
 package problem0239
 
+func maxSlidingWindow1(nums []int, k int) []int {
+	var res []int
+	if len(nums) <= 1 {
+		return nums
+	}
+
+	var q []int
+	for i := 0; i < len(nums); i++ {
+		q = push(q, nums[i])
+		if i < k {
+			continue
+		}
+		res = append(res, q[0])
+		q = pop(q, nums[i-k+1])
+	}
+	return res
+}
+
+func push(q []int, k int) []int {
+	for len(q) > 0 && k > q[len(q)-1] {
+		q = q[:len(q)-1]
+	}
+	q = append(q, k)
+	return q
+}
+
+func pop(q []int, k int) []int {
+	if len(q) > 0 && q[0] == k {
+		q = q[1:]
+	}
+	return q
+}
+
 // 参看 https://leetcode.com/problems/sliding-window-maximum/discuss/65881/O(n)-solution-in-Java-with-two-simple-pass-in-the-array
 func maxSlidingWindow(nums []int, k int) []int {
 	size := len(nums)

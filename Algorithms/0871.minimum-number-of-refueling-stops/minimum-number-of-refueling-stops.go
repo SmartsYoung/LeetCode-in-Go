@@ -10,6 +10,77 @@ import "container/heap"
 // 问，汽车达到目的地的时候，最少需要加几次油？
 
 func minRefuelStops(target int, startFuel int, stations [][]int) int {
+
+	count := 0
+	if target <= startFuel {
+		return 0
+	}
+
+	mh := intHeap{}
+
+	if len(stations) == 0 {
+		return -1
+	}
+
+	left := startFuel
+	for i := 0; i < len(stations); i++ {
+		if i == 0 {
+			left = left - stations[i][0]
+		} else {
+			left = left - (stations[i][0] - stations[i-1][0])
+		}
+
+		if left > 0 {
+			heap.Push(&mh, stations[i][1])
+		}
+
+		if left == 0 {
+			count++
+			heap.Push(&mh, stations[i][1])
+			left = heap.Pop(&mh).(int)
+		}
+
+		for left < 0 {
+			if mh.Len() == 0 {
+				return -1
+			}
+			count++
+			left += mh[0]
+			heap.Pop(&mh)
+			if left > 0 {
+
+				heap.Push(&mh, stations[i][1])
+				break
+			}
+			if left == 0 {
+
+				heap.Push(&mh, stations[i][1])
+				break
+			}
+		}
+	}
+
+	left = left - (target - stations[len(stations)-1][0])
+
+	if left >= 0 {
+		return count
+	}
+	for left < 0 {
+		if mh.Len() == 0 {
+			return -1
+		}
+		count++
+		left += mh[0]
+		heap.Pop(&mh)
+		if left >= 0 {
+			break
+		}
+	}
+
+	return count
+}
+
+/*func minRefuelStops(target int, startFuel int, stations [][]int) int {
 	size := len(stations)
 	gases := make(intHeap, 0, size)
 	miles := startFuel
@@ -40,7 +111,7 @@ func minRefuelStops(target int, startFuel int, stations [][]int) int {
 
 	return -1
 }
-
+*/
 // intHeap 实现了 heap 的接口
 type intHeap []int
 

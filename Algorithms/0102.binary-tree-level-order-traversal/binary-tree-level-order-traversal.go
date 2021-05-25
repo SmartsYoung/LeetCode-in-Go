@@ -8,24 +8,29 @@ type TreeNode = kit.TreeNode
 
 func levelOrder(root *TreeNode) [][]int {
 	res := [][]int{}
-	var dfs func(*TreeNode, int)
 
-	dfs = func(root *TreeNode, level int) {
-		if root == nil {
-			return
-		}
-
-		// 出现了新的 level
-		if level >= len(res) {
-			res = append(res, []int{})
-		}
-		res[level] = append(res[level], root.Val)
-
-		dfs(root.Left, level+1)
-		dfs(root.Right, level+1)
+	if root == nil {
+		return res
 	}
+	queue := make([]*TreeNode, 0)
+	queue = append(queue, root)
 
-	dfs(root, 0)
+	for len(queue) > 0 {
+		length := len(queue)
+		val := make([]int, 0)
+		for i := 0; i < length; i++ {
+			cur := queue[0]
+			val = append(val, cur.Val)
+			if cur.Left != nil {
+				queue = append(queue, cur.Left)
+			}
+			if cur.Right != nil {
+				queue = append(queue, cur.Right)
+			}
+			queue = queue[1:]
+		}
+		res = append(res, val)
+	}
 
 	return res
 }

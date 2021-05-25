@@ -1,5 +1,40 @@
 package problem0567
 
+func checkInclusion1(s1 string, s2 string) bool {
+	if s1 == "" {
+		return true
+	}
+
+	l1 := len(s1)
+	l2 := len(s2)
+
+	need := [128]int{}
+	win := [128]int{}
+	for i := range s1 {
+		need[s1[i]]++
+	}
+	for i, j := 0, 0; i <= j && j < l2; {
+		if need[s2[j]] == 0 {
+			j++
+			i = j
+			win = [128]int{}
+			continue
+		} else {
+			win[s2[j]]++
+		}
+
+		for j-i+1 == l1 {
+			if need == win {
+				return true
+			}
+			win[s2[i]]--
+			i++
+		}
+		j++
+	}
+	return false
+}
+
 func checkInclusion(s1 string, s2 string) bool {
 	n1 := len(s1)
 	n2 := len(s2)

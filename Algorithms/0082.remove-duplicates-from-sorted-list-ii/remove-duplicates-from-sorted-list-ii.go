@@ -1,5 +1,7 @@
 package problem0082
 
+import "fmt"
+
 // ListNode is singly-linked list.
 type ListNode struct {
 	Val  int
@@ -7,6 +9,40 @@ type ListNode struct {
 }
 
 func deleteDuplicates(head *ListNode) *ListNode {
+	dummy := &ListNode{}
+	dummy.Next = head
+
+	pre := dummy
+
+	a := 200
+	for pre.Next != nil {
+		fmt.Println("num 1")
+		if pre.Next.Val == a && pre.Next.Next == nil {
+			fmt.Println("num 2")
+			pre.Next = nil
+			break
+		}
+		if pre.Next.Next != nil {
+			fmt.Println("num 3")
+			if pre.Next.Val == pre.Next.Next.Val {
+				fmt.Println(pre.Next.Val)
+				a = pre.Next.Val
+				pre.Next = pre.Next.Next.Next
+			} else if pre.Next.Val == a {
+				a = pre.Next.Val
+				pre.Next = pre.Next.Next
+			} else {
+				fmt.Println("num 4")
+				pre = pre.Next
+			}
+		} else {
+			break
+		}
+	}
+	return dummy.Next
+}
+
+func deleteDuplicates1(head *ListNode) *ListNode {
 	// 长度 <=1 的 list ，可以直接返回
 	if head == nil || head.Next == nil {
 		return head

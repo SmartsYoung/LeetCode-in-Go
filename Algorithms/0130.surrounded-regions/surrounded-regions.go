@@ -88,3 +88,85 @@ func solve(board [][]byte) {
 		}
 	}
 }
+
+var (
+	dx = [4]int{-1, 0, 1, 0}
+	dy = [4]int{0, 1, 0, -1}
+)
+
+func solve1(board [][]byte) {
+
+	m := len(board)
+	n := len(board[0])
+	if m <= 2 || n <= 2 {
+		return
+	}
+	var (
+		dummy = m * n
+		uf    = NewUF(m*n + 1)
+	)
+
+	postion := func(i, j int) int {
+		return i*n + j
+	}
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if board[i][j] == 'O' {
+				if i == 0 || j == 0 || i == m-1 || j == n-1 {
+					uf.Union(dummy, postion(i, j))
+				}
+				if i > 0 && board[i-1][j] == 'O' {
+					uf.Union(postion(i, j), postion(i-1, j))
+				}
+				if j > 0 && board[i][j-1] == 'O' {
+					uf.Union(postion(i, j), postion(i, j-1))
+				}
+			}
+		}
+	}
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if board[i][j] == 'O' && !uf.IsConnect(postion(i, j), dummy) {
+				board[i][j] = 'X'
+			}
+		}
+	}
+}
+
+type UF struct {
+	parent []int
+}
+
+func NewUF(n int) *UF {
+	parent := make([]int, n)
+	for i := 0; i < n; i++ {
+		parent[i] = i
+	}
+	return &UF{
+		parent: parent,
+	}
+}
+
+func (u *UF) Union(x, y int) {
+	ux := u.Find(x)
+	uy := u.Find(y)
+	if ux != uy {
+		u.parent[ux] = uy
+	}
+}
+func (u *UF) Find(i int) int {
+	root := i
+	for u.parent[root] != root {
+		root = u.parent[root]
+	}
+	for u.parent[i] != root {
+		i, u.parent[i] = u.parent[i], root
+	}
+	return root
+}
+
+func (u *UF) IsConnect(x, y int) bool {
+	return u.Find(x) == u.Find(y)
+}
